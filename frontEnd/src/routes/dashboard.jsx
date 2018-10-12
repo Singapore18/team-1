@@ -33,9 +33,9 @@ const dashboardRoutes = [
     component: Dashboard
   },
   {
-    path: "/projects",
-    sidebarName: "Projects",
-    navbarName: "My Projects",
+    path: "/profile",
+    sidebarName: "Profile",
+    navbarName: "Profile Page",
     icon: FileCopy,
     component: Project
   },
@@ -54,47 +54,13 @@ const dashboardRoutes = [
     component: UserProfile
   },
   {
-    path: "/notice-board",
-    sidebarName: "Notice Board",
-    navbarName: "Notice Board",
+    path: "/resume",
+    sidebarName: "Resume",
+    navbarName: "Resume",
     icon: Subtitles,
     component: TableList
   },
-  {
-    path: "/message",
-    sidebarName: "Message",
-    navbarName: "Message",
-    icon: LibraryBooks,
-    component: Message
-  },
-  {
-    path: "/activity-log",
-    sidebarName: "Activity Log",
-    navbarName: "Log",
-    icon: TrackChanges,
-    component: Icons
-  },
-  // {
-  //   path: "/maps",
-  //   sidebarName: "Maps",
-  //   navbarName: "Map",
-  //   icon: LocationOn,
-  //   component: Maps
-  // },
-  {
-    path: "/notifications",
-    sidebarName: "Notifications",
-    navbarName: "Notifications",
-    icon: Notifications,
-    component: NotificationsPage
-  },
-  {
-    path: "/files",
-    sidebarName: "Files",
-    navbarName: "Files Management",
-    icon: Unarchive,
-    component: UpgradeToPro
-  },
+
   { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
 

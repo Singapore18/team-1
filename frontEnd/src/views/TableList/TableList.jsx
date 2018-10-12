@@ -1,112 +1,111 @@
 import React from "react";
-// @material-ui/core components
+import PropTypes from "prop-types";
+// @material-ui/core
 import withStyles from "@material-ui/core/styles/withStyles";
-// core components
-import GridItem from "components/Grid/GridItem.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import Table from "components/Table/Table.jsx";
-import Card from "components/Card/Card.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardBody from "components/Card/CardBody.jsx";
+
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
+
+import projectStyle from "assets/jss/material-dashboard-react/views/projectStyle.jsx";
+import img from "assets/img/sam.png"
 
 const styles = {
-  cardCategoryWhite: {
-    "&,& a,& a:hover,& a:focus": {
-      color: "rgba(255,255,255,.62)",
-      margin: "0",
-      fontSize: "14px",
-      marginTop: "0",
-      marginBottom: "0"
-    },
-    "& a,& a:hover,& a:focus": {
-      color: "#FFFFFF"
-    }
+  card: {
+    maxWidth: 100
+
   },
-  cardTitleWhite: {
-    color: "#FFFFFF",
-    marginTop: "0px",
-    minHeight: "auto",
-    fontWeight: "300",
-    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    marginBottom: "3px",
-    textDecoration: "none",
-    "& small": {
-      color: "#777",
-      fontSize: "65%",
-      fontWeight: "400",
-      lineHeight: "1"
-    }
-  }
+  media: {
+    maxWidth: 100
+  },
 };
 
-function TableList(props) {
-  const { classes } = props;
-  return (
-    <GridContainer>
-      <GridItem xs={12} sm={12} md={12}>
-        <Card>
-          <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Simple Table</h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                ["Mason Porter", "Chile", "Gloucester", "$78,615"]
-              ]}
-            />
-          </CardBody>
+const client = {
+  id: 1,
+  name: "Sam Yeo",
+  personalInterest: "Running",
+  jobInterest: "Retail",
+  skills: ["cook", "making coffee"],
+  age: "25",
+
+};
+
+class TableList extends React.Component {
+  state = {
+    selected: "a"
+  };
+  handleChange = event => {
+    this.setState({ selected: event.target.value });
+  };
+
+  handleChangeIndex = index => {
+    this.setState({ value: index });
+  };
+  render() {
+    const { classes, history } = this.props;
+    return (
+
+      <div >
+
+
+        <Card className={classes.card}>
+          <Avatar classname={classes.button}
+            alt="Sam Yeo picture"
+            src={img}
+            className={classes.bigAvatar}
+          />
+
+          <CardContent>
+            <Typography gutterBottom variant="h4" component="h4">
+             Resume
+          </Typography>
+            <Typography variant="p">
+              Name: Sam Yeo<br/>
+              Gender: Male<br/>
+              Age: 25<br/>
+              Address: XX Tampines St XX<br/>
+              Postal Code: XXXXXX<br/>
+          </Typography>
+            <br />
+
+
+            <Typography variant="h5">
+              Work Experience
+          </Typography>
+            <br />
+
+            <Typography variant="p">
+            <li>Working Experience 1</li>
+            <li>Working Experience 2</li>
+            <li>Working Experience 3</li>
+          </Typography>
+
+
+  
+          <br/>
+          <Typography variant="h5">
+              Skills
+          </Typography>
+            <br />
+            <Typography variant="p">
+            <li>Skills 1</li>
+            <li>Skills 2</li>
+            <li>Skills 3</li> 
+          </Typography>
+
+          </CardContent>
         </Card>
-      </GridItem>
-      <GridItem xs={12} sm={12} md={12}>
-        <Card plain>
-          <CardHeader plain color="primary">
-            <h4 className={classes.cardTitleWhite}>
-              Table on Plain Background
-            </h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park"
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten"
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
-              ]}
-            />
-          </CardBody>
-        </Card>
-      </GridItem>
-    </GridContainer>
-  );
+
+      </div>
+
+    );
+  }
 }
 
-export default withStyles(styles)(TableList);
+export default withStyles(projectStyle)(TableList);

@@ -87,6 +87,23 @@ const projectStyle = theme => ({
   divider: {
     marginTop: "20px",
     marginBottom: "20px"
+  },
+  card: {
+    maxWidth: "100%",
+
+  },
+  media: {
+    height: "200px",
+    width: "200px",
+    align: "center"
+  },
+  bigAvatar: {
+    margin: "10px",
+    width: 150,
+    height: 150,
+  },
+  chip: {
+    margin: "5px"
   }
 });
 

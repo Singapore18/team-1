@@ -2,27 +2,40 @@ import React from "react";
 import PropTypes from "prop-types";
 // @material-ui/core
 import withStyles from "@material-ui/core/styles/withStyles";
-import Divider from "@material-ui/core/Divider";
-import GridItem from "components/Grid/GridItem.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import CardImage from "components/CardImage/CardImage.jsx";
-import Tooltip from "@material-ui/core/Tooltip";
-import Radio from "@material-ui/core/Radio";
 
-//icon
-import { DesktopMac } from "@material-ui/icons";
-
-import { Typography } from "@material-ui/core";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
 
 import projectStyle from "assets/jss/material-dashboard-react/views/projectStyle.jsx";
+import img from "assets/img/sam.png"
 
-const project1 = ["Segmention_20July2018", "Segmention_27July2018"];
-const project2 = [
-  "Tissue_Classification_21July2018",
-  "Tissue_Classification_28July2018",
-  "Tissue_Segmention_29July2018"
-];
-const project3 = ["Ailment_Classification_03August2018"];
+const styles = {
+  card: {
+    maxWidth: 100
+
+  },
+  media: {
+    maxWidth: 100
+  },
+};
+
+const client = {
+  id: 1,
+  name: "Sam Yeo",
+  personalInterest: "Running",
+  jobInterest: "Retail",
+  skills: ["cook", "making coffee"],
+  age: "25",
+
+};
+
 class Project extends React.Component {
   state = {
     selected: "a"
@@ -37,78 +50,75 @@ class Project extends React.Component {
   render() {
     const { classes, history } = this.props;
     return (
-      <div>
-        <Typography
-          color="secondary"
-          variant="headline"
-          className={classes.sectionHeader}
-        >
-          Project 1 (Cell Generation)
-        </Typography>
-        <GridContainer>
-          {project1.map((tt, index) => (
-            <GridItem xs={12} sm={12} md={4} key={index}>
-              <CardImage
-                id={tt}
-                icon={
-                  <DesktopMac color="primary" className={classes.addIcon} />
-                }
-                details={
-                  <Typography className={classes.cardTitle}>{tt}</Typography>
-                }
-              />
-            </GridItem>
-          ))}
-        </GridContainer>
-        <Divider className={classes.divider} />
-        <Typography
-          color="secondary"
-          variant="headline"
-          className={classes.sectionHeader}
-        >
-          Project 2 (Osmosis Acceleration)
-        </Typography>
-        <GridContainer>
-          {project2.map((tt, index) => (
-            <GridItem xs={12} sm={12} md={4} key={index}>
-              <CardImage
-                id={tt}
-                icon={
-                  <DesktopMac color="primary" className={classes.addIcon} />
-                }
-                details={
-                  <Typography className={classes.cardTitle}>{tt}</Typography>
-                }
-              />
-            </GridItem>
-          ))}
-        </GridContainer>
-        <Divider className={classes.divider} />
-        <Typography
-          color="secondary"
-          variant="headline"
-          className={classes.sectionHeader}
-        >
-          Project 3 (Incomplete)
-        </Typography>
-        <GridContainer>
-          {project3.map((tt, index) => (
-            <GridItem xs={12} sm={12} md={4} key={index}>
-              <CardImage
-                onClick={() => history.push("/notebook")}
-                id={tt}
-                icon={
-                  <DesktopMac color="primary" className={classes.addIcon} />
-                }
-                details={
-                  <Typography className={classes.cardTitle}>{tt}</Typography>
-                }
-              />
-            </GridItem>
-          ))}
-        </GridContainer>
-        <Divider className={classes.divider} />
+
+      <div >
+
+
+        <Card className={classes.card}>
+          
+          <Avatar
+            alt="Sam Yeo picture"
+            src={img}
+            className={classes.bigAvatar}
+          />
+
+          <CardContent>
+            <Typography gutterBottom variant="h4" component="h4">
+              Introduction
+          </Typography>
+            <Typography variant="h6">
+              "I can do it!"
+          </Typography>
+            <br />
+            <Typography variant="p">
+              Hi! My name is {client.name}. I am {client.age} years old.
+          </Typography>
+            <br />
+
+            <Typography variant="h5">
+              Personal Traits
+          </Typography>
+            <br />
+
+
+            {client.personalInterest == 'Running' && <Typography variant="p">
+              I am physically fit and live an active lifestyle! As a outgoing person, I like to get out of my comfort zone and enjoy a challenge!
+          </Typography>}
+
+
+            {client.personalInterest == 'Gardening' || client.personalInterest == 'Store' && <Typography variant="p">
+              I am kind and empathetic towards others, always ready to lend a listening ear. In addition, I enjoy social interactions and work well in a team!
+          </Typography>}
+
+            {client.personalInterest == 'Office' || client.personalInterest == 'Logistic' && <Typography variant="p">
+              Being detail-oriented, I make a conscious effort to ensure a smooth workflow. If you need an eye for details, I am suitable for the role.
+          </Typography>}
+
+            {client.personalInterest == 'Cooking' && <Typography variant="p">
+              As a very disciplined individual, I believe in hardwork and will carry out my assigned tasks to the best of my abilities.
+          </Typography>}
+            <br />
+
+            <Typography variant="h5">
+              Skills
+          </Typography>
+            <br />
+            <Typography variant="p">
+              I am skilled in
+          </Typography>
+            {
+              client.skills.map(skill => (
+                <Chip className={classes.chip}
+                  label={skill}
+                />
+              )
+              )}
+
+          </CardContent>
+        </Card>
+
       </div>
+
     );
   }
 }
