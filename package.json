@@ -1,0 +1,29 @@
+{
+  "name": "cfg",
+  "version": "1.0.0",
+  "description": "README",
+  "main": "dbConnectionFactory.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.39.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Singapore18/team-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Singapore18/team-1/issues"
+  },
+  "homepage": "https://github.com/Singapore18/team-1#readme"
+}
