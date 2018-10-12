@@ -1,6 +1,6 @@
 import { successColor } from "assets/jss/material-dashboard-react.jsx";
 
-const dashboardStyle = {
+const dashboardStyle = theme => ({
   successText: {
     color: successColor
   },
@@ -77,8 +77,75 @@ const dashboardStyle = {
   },
   container: {
     display: "flex",
+    width: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  workExperienceBox: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItem: "center",
+    justifyContent: "center"
+  },
+  nameBoxes: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItem: "center",
+    justifyContent: "center"
+  },
+  group: {
+    display: "flex",
+    flexDirection: "row"
+  },
+  name: {
+    width: "120%",
+    margin: theme.spacing.unit * 2
+  },
+  formControl: {
+    width: "97%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "auto"
+  },
+  gridList: {
+    height: 650,
     width: "100%"
+  },
+  textField: {
+    width: "97%",
+    margin: theme.spacing.unit * 2
+  },
+  subtitle: {
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5
+  },
+  addButton: {
+    width: "50%"
+  },
+  button: {
+    margin: "70px",
+    height: "50px",
+    width: "200px",
+    borderRadius: "100px",
+    background: "linear-gradient(60deg, #00acc1, #02c7dd)",
+    textTransform: "none"
+  },
+  loginBtnText: {
+    color: "#fff"
+  },
+  upload: {
+    width: "40%",
+    backgroundColor: "transparent"
   }
-};
+  //   img: {
+  // 	height: 300,
+  // 	resizeMode: "cover"
+  //   }
+});
 
 export default dashboardStyle;

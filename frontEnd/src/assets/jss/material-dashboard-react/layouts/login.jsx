@@ -53,8 +53,8 @@ const appStyle = theme => ({
     height: "50px",
     width: "200px",
     borderRadius: "100px",
-		background: "linear-gradient(60deg, #00acc1, #02c7dd)",
-		textTransform: 'none'
+    background: "linear-gradient(60deg, #00acc1, #02c7dd)",
+    textTransform: "none"
   },
   loginBtnText: {
     color: "#fff"

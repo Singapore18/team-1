@@ -14,7 +14,7 @@ const hist = createBrowserHistory();
 const Root = ({ store }) => (
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
-      <BrowserRouter history={hist} basename="/medframeAI">
+      <BrowserRouter history={hist} basename="/jpm18">
         <Switch>
           {indexRoutes.map((prop, key) => {
             return (

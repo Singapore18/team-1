@@ -40,8 +40,9 @@ function Footer({ ...props }) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a href="https://enterprise.nus.edu.sg/" className={classes.a}>
-              MedFrame AI
-            </a>, for a better future of medical AI.
+              MINDS
+            </a>
+            for a better future.
           </span>
         </p>
       </div>
